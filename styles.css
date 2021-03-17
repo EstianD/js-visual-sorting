@@ -1,0 +1,23 @@
+#bar-container {
+   display: flex;
+   height: 200px;
+}
+
+#number-container {
+   display: flex;
+}
+
+#bar-container > div {
+   background-color: blue;
+   flex-grow: 1;
+   margin: 1%;
+}
+
+.bar_num {
+   flex-grow: 1;
+   text-align: center;
+}
+
+.scanned {
+   background-color: purple !important;
+}

@@ -1,12 +1,13 @@
-import renderBars from "./renderBars.js"
-import renderNumbers from "./renderNumbers.js";
+import renderBars from "../render/renderBars.js"
+import renderNumbers from "../render/renderNumbers.js";
+import { getState } from "../state.js"
 
-export default async function SelectiveSort(numArray){
+export default async function SelectiveSort(){
    console.log("sorting")
    // Create copy of generated array
-   console.log("ARRAY: ", numArray)
+   // console.log("ARRAY: ", numArray)
 
-   const newArray = [...numArray];
+   const newArray = [...getState().numberArray];
    // Declare variables
    let min, temp, min_index, scanned, prev_min_index, searching;
 

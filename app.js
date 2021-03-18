@@ -1,23 +1,21 @@
-import SelectiveSort from './selectiveSort.js';
-import renderButtonContainer from "./renderButtonContainer.js"
-import renderBars from "./renderBars.js"
-import renderNumbers from "./renderNumbers.js"
-import generateArray from "./generateArray.js"
+import SelectiveSort from './functions/selectiveSort.js';
+import renderButtonContainer from "./render/renderButtonContainer.js"
+import renderBars from "./render/renderBars.js"
+import renderNumbers from "./render/renderNumbers.js"
+import generateArray from "./functions/generateArray.js"
+
+// Import state function
+import { setState, getState } from "./state.js"
 
 
-// Define array
-let numberArray = generateArray();
-
+// Generate random array
+generateArray();
 
 // Variable to track the indexes scanned
-let indexScanned = 0;
-
-let appState = {
-   sorting: false
-}
+// let indexScanned = 0;
 
 // Render button container
-renderButtonContainer(numberArray);
+renderButtonContainer(getState().numberArray);
 
 // Get selective sort button
 let btnSelectiveSort = document.getElementById("btn__run_script");

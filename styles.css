@@ -21,3 +21,23 @@
 .scanned {
    background-color: purple !important;
 }
+
+/* Header buttons */
+.header_btn {
+   padding: 10px;
+   margin: 10px;
+   background-color: white;
+   border: 2px solid orange;
+   color: orange;
+   border-radius: 15%;
+}
+
+.header_btn:hover {
+   background-color: orange;
+   color: white;
+   cursor: pointer;
+}
+
+#button-container {
+   text-align: center;
+}

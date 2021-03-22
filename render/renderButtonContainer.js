@@ -1,4 +1,4 @@
-import selectiveSort from "../functions/selectiveSort.js";
+import selectiveSort from "../functions/sort_functions/selectiveSort.js";
 import generateArray from "../functions/generateArray.js";
 import stopSort from "../functions/stopSort.js";
 import renderSortList from "./renderSortList.js";

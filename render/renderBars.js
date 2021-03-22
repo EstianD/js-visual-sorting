@@ -12,7 +12,7 @@ const calcBarLength = (num, max) => {
 }
 
 
-export default function renderBars(numArray, indexesScanned) {
+export default function renderBars(numArray, indexesScanned = 0, sorter = undefined) {
    console.log("rendering")
    
    let bar_container = document.getElementById("bar-container");
@@ -32,10 +32,20 @@ export default function renderBars(numArray, indexesScanned) {
       // Set bar height to calculated heigth
       div_bar.style.height = barLength + "%"
 
-      // Check if index has already been scanned
-      if(i < indexesScanned){
-         div_bar.classList.add("scanned");
+      switch(sorter){
+         case "SELECTIVE": 
+            // Check if index has already been scanned
+            if(i < indexesScanned){
+               div_bar.classList.add("scanned");
+            }
+         break;
+         case "BUBBLE":
+            if(i >= numArray.length - indexesScanned){
+               div_bar.classList.add("scanned");
+            }
       }
+
+      
 
       bar_container.appendChild(div_bar);
    })

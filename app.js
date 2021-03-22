@@ -1,4 +1,4 @@
-import SelectiveSort from './functions/selectiveSort.js';
+// import SelectiveSort from './functions/selectiveSort.js';
 import renderButtonContainer from "./render/renderButtonContainer.js"
 import renderBars from "./render/renderBars.js"
 import renderNumbers from "./render/renderNumbers.js"
@@ -18,9 +18,9 @@ generateArray();
 renderButtonContainer(getState().numberArray);
 
 // Get selective sort button
-let btnSelectiveSort = document.getElementById("btn__run_script");
+// let btnSelectiveSort = document.getElementById("btn__run_script");
 // Get generateArray button
-let btnGenerateArray = document.getElementById("btn__gen_array");
+// let btnGenerateArray = document.getElementById("btn__gen_array");
 
 
 

@@ -12,7 +12,7 @@ const calcBarLength = (num, max) => {
 }
 
 
-export default function renderBars(numArray, indexesScanned = 0, sorter = undefined) {
+export default function renderBars(numArray, indexesScanned = 0, sorter = undefined, current, searching) {
    console.log("rendering")
    
    let bar_container = document.getElementById("bar-container");
@@ -40,9 +40,26 @@ export default function renderBars(numArray, indexesScanned = 0, sorter = undefi
             }
          break;
          case "BUBBLE":
+            console.log("I = ", i)
+            console.log("INDEX DIFF: ", numArray.length - indexesScanned)
+
+            // Set current searching bar
+            if(i == current){
+               div_bar.classList.add("current");
+            }
+            // Set searching bar
+            if(i == searching){
+               div_bar.classList.add("searching");
+            }
+
+
             if(i >= numArray.length - indexesScanned){
                div_bar.classList.add("scanned");
+               div_bar.classList.remove("current");
+               div_bar.classList.remove("searching");
             }
+
+            
       }
 
       

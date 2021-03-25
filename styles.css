@@ -22,6 +22,14 @@
    background-color: purple !important;
 }
 
+.current {
+   background-color: orange !important;
+}
+
+.searching {
+   background-color: orange !important;
+}
+
 /* Header buttons */
 .header_btn {
    padding: 10px;

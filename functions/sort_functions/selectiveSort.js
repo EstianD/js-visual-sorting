@@ -2,17 +2,14 @@ import renderBars from "../../render/renderBars.js"
 import renderNumbers from "../../render/renderNumbers.js";
 
 export default async function SelectiveSort(numArray){
-   console.log("sorting")
-   // Create copy of generated array
-   // console.log("ARRAY: ", numArray)
-
    const newArray = [...numArray];
    // Declare variables
-   let min, temp, min_index, scanned, prev_min_index, searching;
+   let min, temp, min_index, indexesScanned, prev_min_index, searching;
 
    // Loop through array
    for (let n = 0; n < newArray.length; n++) {
-      document.getElementById(`bar-${n}`).style.background = "orange";
+      // Set current search index
+      document.getElementById(`bar-${n}`).classList.add("current");
       
       //  Set min to first index
       min = newArray[n];
@@ -20,8 +17,7 @@ export default async function SelectiveSort(numArray){
       // Loop through and match with all other values
       for (let i = n + 1; i < newArray.length; i++) {
          // Set scanning bar color
-         searching = document.getElementById(`bar-${i}`);
-         searching.style.background = 'green';
+         searching = document.getElementById(`bar-${i}`).classList.add("pointer")
 
         if (newArray[i] < min) {
           min = newArray[i];
@@ -32,21 +28,22 @@ export default async function SelectiveSort(numArray){
             // Check if min_index changed
             // If it changed, return the color back to blue
             if(prev_min_index != n){
-              document.getElementById(`bar-${prev_min_index}`).style.background = 'blue';
+              document.getElementById(`bar-${prev_min_index}`).classList.remove("searching");
             }
           }
           // Set new min_index to new lowest index
           // Change color for that index
           min_index = i;
-          document.getElementById(`bar-${i}`).style.background = 'orange';
-
+          
+         document.getElementById(`bar-${i}`).classList.add("searching")
+         document.getElementById(`bar-${i}`).classList.remove("pointer")
         }
         // Wait before itterating to next loop
         await sleep(100);
         
          // Clear styling if value is not the min_index
          if(i !== min_index) {
-            searching.style.background = "blue"
+            document.getElementById(`bar-${i}`).classList.remove("pointer")
          } 
       }
 
@@ -57,10 +54,10 @@ export default async function SelectiveSort(numArray){
       // Set the previous minimum value index to the current loop index
       newArray[min_index] = temp;
       // Set a counter for the number of itteration + 1 to determine the style of that bar
-      scanned = n+1;
+      indexesScanned = n+1;
       // Update array
       // Render bars
-      renderBars(newArray, scanned, 'SELECTIVE');
+      renderBars(newArray, indexesScanned, 'SELECTIVE');
       renderNumbers(newArray);
       console.log("SORTING: ", newArray);
     }

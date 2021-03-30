@@ -30,6 +30,10 @@
    background-color: orange !important;
 }
 
+.pointer {
+   background-color: green !important;
+}
+
 /* Header buttons */
 .header_btn {
    padding: 10px;
